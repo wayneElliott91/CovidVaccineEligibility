@@ -51,10 +51,25 @@ namespace CovidVaccineEligibility
             {
                 string Message = "";
 
-                if(age > 50 && gender.Equals(Gender.Male) ) {
+                if(age > 35 && gender.Equals(Gender.Male) ) {
                     Message = SuitableVaccines.AstraZeneca + " is the most suitable vaccine for you.";
                 }
-
+                else if (age > 35 && gender.Equals(Gender.Female))
+                {
+                    Message = SuitableVaccines.Pfizer + " is the most suitable vaccine for you.";
+                }
+                else if (age > 20 && gender.Equals(Gender.Male))
+                {
+                    Message = SuitableVaccines.JohnsonAndJohnson + " is the most suitable vaccine for you.";
+                }
+                else if (age > 20 && gender.Equals(Gender.Female))
+                {
+                    Message = SuitableVaccines.AstraZeneca + " is the most suitable vaccine for you.";
+                }
+                else
+                {
+                    Message = SuitableVaccines.JohnsonAndJohnson + " is the most suitable vaccine for you.";
+                }
                 return "You are " + this.age + " and " + this.gender + ". " + Message;
             }
         }
